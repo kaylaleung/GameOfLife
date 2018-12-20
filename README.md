@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-## Rules 
+### Rules:
 
 The universe of the Game of Life is a two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
 
