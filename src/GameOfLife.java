@@ -117,7 +117,6 @@ public class GameOfLife extends JFrame implements ActionListener {
     
     private void updateBoard() {
     
-        // toggle the visibility will SPEED UP the Update!!!
         boardPanel.setVisible(false);
         for(int i = 0; i < world.length; i++) {
             for(int j = 0; j < world[i].length; j++) {
@@ -163,7 +162,7 @@ public class GameOfLife extends JFrame implements ActionListener {
     /*
         A creature that has two or three neighbors will continue live in the next generation.
         A creature that has more than 3 neighbors will die of overcrowding. Its cell will be empty in the next generation.
-        A creature that has less than 2 neighbors will die of loneliness.
+        A creature that has less than 2 neighbors will die of loneliness. Its cell will be empty in the next generation
         A new creature born in an empty cell that has exactly 3 neighbors.
     */
     private boolean isAlive(int row, int col){
@@ -172,12 +171,24 @@ public class GameOfLife extends JFrame implements ActionListener {
 
             for(int i = -1; i <= 1; i++){
                     int curRow = row + i;
-                    curRow = (curRow < 0)? intBoardSize - 1: curRow;
-                    curRow = (curRow >= intBoardSize)? 0 : curRow;
+                    if (curRow < 0)
+                    {
+                        curRow = intBoardSize - 1;
+                    }
+                    if (curRow >= intBoardSize)
+                    {
+                        curRow = 0;
+                    }
                     for(int j = -1; j <= 1; j++){
                             int curCol = col + j;
-                            curCol = (curCol < 0)? intBoardSize - 1: curCol;
-                            curCol = (curCol >= intBoardSize)? 0 : curCol;
+                            if (curCol < 0)
+                            {
+                                curCol = intBoardSize - 1;
+                            }
+                            if (curCol >= intBoardSize)
+                            {
+                                curCol = 0;
+                            }
                             if(world[curRow][curCol]){
                                     neighborsCount++;
                             }
@@ -188,7 +199,7 @@ public class GameOfLife extends JFrame implements ActionListener {
                     neighborsCount--;
             }
 
-            // Rules
+            // Game Rules
             if(neighborsCount == 2 && cellIsAlive){
                     return true;
             } else if(neighborsCount == 3){
@@ -202,7 +213,7 @@ public class GameOfLife extends JFrame implements ActionListener {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-        // TODO code application logic here
+
         GameOfLife gui = new GameOfLife();
         gui.setVisible(true);
         
