@@ -10,3 +10,8 @@ The universe of the Game of Life is a two-dimensional orthogonal grid of square 
 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
 The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed; births and deaths occur simultaneously. Each generation is a pure function of the preceding one. The rules continue to be applied repeatedly to create further generations. (Wikipedia)
+
+[View sample run video](https://youtu.be/wpL6ek4uCwE)
+
+
+[![IMAGE ALT TEXT HERE](https://atkaylaleung.files.wordpress.com/2018/12/Screen-Shot-2018-12-27-at-11.45.38-AM.png)](https://youtu.be/wpL6ek4uCwE)
